@@ -1,20 +1,20 @@
-**15/08/2024 mentor meeting (week 4)\_SC_platypus**
+# **15/08/2024 mentor meeting (week 4)\_SC_platypus**
 
-**Date Time**
+## **Date Time**
 
 15/08/2024 1:15 pm - 1:50pm
 
-**Meeting Venue**
+## **Meeting Venue**
 
 [Zoom](https://unimelb.zoom.us/j/87154448887?pwd=SkZSU1VhZmNIMlZqRHBwTFZRKzJTUT09)
 
-**Attendees**
+## **Attendees**
 
-**Mentor**
+### **Mentor**
 
 Afsana Imam
 
-**Team members**
+### **Team members**
 
 - Yi Xu
 - Jingbo Lu
@@ -23,16 +23,16 @@ Afsana Imam
 - Lingrui Liang
 - Ming Lu
 
-**Minute Takers**
+## **Minute Takers**
 
 Lingrui Liang
 
-**Meeting Agenda:**
+## **Meeting Agenda:**
 
 - Q&A about Sprint 1
 - Some guidance
 
-**Meeting Minutes:**
+## **Meeting Minutes: 35 min**
 
 **1.Does the place showing pictures mean the Readme file? Do you want us to take one picture or several single pictures for each member?**
 
