@@ -6,7 +6,7 @@ This is the implementation view of the “4+1” model view of architecture, whi
 
 Next, we will introduce you to the participants of this document, a UML component diagram of this project and the justification for it.
 
-##**Participants**
+## **Participants**
 
 | **Name** | **Roles in this view** |
 | --- | --- |
