@@ -15,6 +15,8 @@ Next, we will introduce you to the participants of this document, a UML componen
 
 ## 1.**Component Diagram**
 <img src="component diagram.jpg">
+(https://lucid.app/lucidchart/3a7a6fa8-0db1-485d-a9ec-c1087d0c1149/edit?viewport_loc=-818%2C324%2C2714%2C1305%2C92r5gStE5J9AS&invitationId=inv_8e8d74d5-9112-4a79-a374-5644223dd8f9)
+
 
 ## 2. **Justification**
 
