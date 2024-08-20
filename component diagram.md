@@ -13,9 +13,10 @@ Next, we will introduce you to the participants of this document, a UML componen
 | Lingrui Liang   Nianran Pan | Component diagram editor and documentation editor |
 | Yi Xu | Reviewer |
 
+## 1.**Component Diagram**
 <img src="component diagram.jpg">
 
-## 1. **Justification**
+## 2. **Justification**
 
 This component diagram highlights modularity and security. By distinguishing roles and concentrating core functions, the system has good maintainability and scalability.
 
