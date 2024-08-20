@@ -13,7 +13,7 @@ Next, we will introduce you to the participants of this document, a UML componen
 | Lingrui Liang   Nianran Pan | Component diagram editor and documentation editor |
 | Yi Xu | Reviewer |
 
-<img src="C:\Users\llr\Desktop\component diagram.jpg">
+<img src="component diagram.jpg">
 
 ## 1. **Justification**
 
