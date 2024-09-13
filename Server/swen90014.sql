@@ -32,7 +32,7 @@ CREATE TABLE `f_user` (
   `age` int DEFAULT NULL,
   `avatar` longblob,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;把
 
 -- ----------------------------
 -- Table structure for option
@@ -127,26 +127,6 @@ INSERT INTO `questionnaire` VALUES (1, 'Chinese', 'This is a description');
 INSERT INTO `questionnaire` VALUES (2, 'English', 'This is a description.');
 
 SET FOREIGN_KEY_CHECKS = 1;
-
--- ----------------------------
--- Table structure for Marking
--- ----------------------------
-DROP TABLE IF EXISTS `marking`;
-CREATE TABLE marking (
-                       id BIGINT AUTO_INCREMENT PRIMARY KEY,
-                       studentId BIGINT NOT NULL,
-                       questionnaireId BIGINT NOT NULL,
-                       questionId BIGINT NOT NULL,
-                       `option` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL
-)ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of questionnaire
--- ----------------------------
-INSERT INTO `marking` VALUES (0,10,1,1, 'option A');
-INSERT INTO `marking` VALUES (0,10,1,1, 'option B');
-INSERT INTO `marking` VALUES (0,10,1,1, 'option C');
-
 -- ----------------------------
 -- Table structure for grade
 -- ----------------------------
@@ -167,3 +147,4 @@ INSERT INTO `grade` VALUES (2, 2, 3, 2, 'optionB');
 INSERT INTO `grade` VALUES (3, 3, 3, 3, 'optionC');
 INSERT INTO `grade` VALUES (4, 4, 3, 4, 'optionD');
 INSERT INTO `grade` VALUES (5, 5, 3, 5, 'optionE');
+
