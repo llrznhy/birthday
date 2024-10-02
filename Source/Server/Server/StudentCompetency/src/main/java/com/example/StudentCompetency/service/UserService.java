@@ -39,4 +39,6 @@ public interface UserService {
     Result<UserVO> rejestFriend(User currentUser, User user);
 
     void sendVerificationCode(String emailAddress, String verificationCode) throws EmailException;
+
+    ArrayList<UserVO> getStudents();
 }

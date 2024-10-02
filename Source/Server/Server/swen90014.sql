@@ -159,11 +159,11 @@ SET FOREIGN_KEY_CHECKS = 1;
 -- Table structure for class
 -- ----------------------------
 DROP TABLE IF EXISTS `class`;
-CREATE TABLE IF NOT EXISTS `class` (
-                     `classId` INT NOT NULL PRIMARY KEY,
-                     `userId` INT(10) UNSIGNED NOT NULL,
-                     `username` VARCHAR(255) NOT NULL,
-                     `age` INT DEFAULT NULL,
-                     FOREIGN KEY (`userId`) REFERENCES `f_user`(`id`)  -- 外键引用 f_user 表
+CREATE TABLE  `class` (
+                        `classId` INT NOT NULL PRIMARY KEY,
+                        `userId` INT(10) UNSIGNED NOT NULL,
+                         `username` VARCHAR(255) NOT NULL,
+                        `age` INT DEFAULT NULL,
+                        FOREIGN KEY (`userId`) REFERENCES `f_user`(`id`)
 ) ENGINE=InnoDB CHARACTER SET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 

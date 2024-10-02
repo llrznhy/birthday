@@ -48,4 +48,7 @@ public interface UserMapper {
     @Delete("DELETE FROM friend_request WHERE id=#{id1} AND id_friend=#{id2}")
     void deleteFriendRequest(Long id1, Long id2);
 
+    //@Select("SELECT * FROM f_user WHERE role = c")
+    @Select("SELECT * FROM f_user")
+    ArrayList<User> getStduents();
 }

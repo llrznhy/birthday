@@ -5,8 +5,8 @@ import com.example.StudentCompetency.result.Result;
 import com.example.StudentCompetency.service.UserService;
 import com.example.StudentCompetency.vo.UserVO;
 import org.springframework.web.bind.annotation.*;
-
 import javax.annotation.Resource;
+import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/user")
@@ -27,4 +27,9 @@ public class UserCotroller {
         return userService.creatAccount(user);
     }
 
+    // getStudents
+    @GetMapping("/getStudents")
+    public ArrayList<UserVO> getStudents() {
+        return userService.getStudents();
+    }
 }

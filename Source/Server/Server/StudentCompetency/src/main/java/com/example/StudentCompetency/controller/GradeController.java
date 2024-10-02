@@ -13,6 +13,7 @@ public class GradeController {
     @Autowired
     private GradeService gradeService;
 
+    // 前端通过传递studentId和moduleId查询相关选项
     @GetMapping("/options")
     public List<Grade> getOptionsByStudentAndModule(@RequestParam Long studentId, @RequestParam Long questionnaireId) {
         return gradeService.getOptionsByStudentAndModule(studentId, questionnaireId);

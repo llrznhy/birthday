@@ -12,29 +12,57 @@ import com.example.StudentCompetency.vo.QuestionnaireVO;
 import com.example.StudentCompetency.vo.UserVO;
 import org.apache.catalina.startup.UserConfig;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import static org.hamcrest.Matchers.isIn;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 import java.util.List;
 
 @SpringBootTest
+@AutoConfigureMockMvc
 class StudentCompetencyApplicationTests {
-	@Test
-	void contextLoads() {
-	}
+	@Autowired
+    private MockMvc mockMvc;
 
-	@Test
-	void accountTest(){
-		UserCotroller userCotroller = new UserCotroller();
-		User user = new User();
-		user.setAge(18);
-		user.setUserName("User1");
-		user.setPassword("123qweASD.");
-		user.setRole("student");
-		Result<UserVO> result = userCotroller.createUser(user);
-		assert(result.getCode() == 0);
-		result = userCotroller.loginUser(user);
-		assert(result.getCode() == 0);
-	}
+	 @Test
+    public void testGetStudents() throws Exception {
+		mockMvc.perform(get("/user/getStudents")) // 这里调用你的 Controller 接口
+                .andExpect(status().isOk()) // 断言返回状态码是 200 OK
+                .andExpect(jsonPath("$[-1].userName").exists()); // 校验返回的 JSON 内容
+    }
+
+    @Test
+    public void testLoginUser() throws Exception {
+		String registerRequestBody = "{ \"userName\": \"newUser\", \"password\": \"newPassword1\", \"email\": \"user@example.com\", \"role\": \"a\", \"age\": 25, \"salt\": 1 }";
+
+        String loginRequestBody = "{ \"userName\": \"newUser\", \"password\": \"newPassword1\" }";
+
+        mockMvc.perform(post("/user/register")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(registerRequestBody))
+                .andExpect(status().isOk())  // 期望返回状态码200
+                .andExpect(jsonPath("$.message").value(isIn(new String[]{"User Name exsist", "success"})));
+
+
+        mockMvc.perform(post("/user/login")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(loginRequestBody))
+                .andExpect(status().isOk())  // 期望返回状态码200
+                .andExpect(jsonPath("$.message").value("success"))  // 假设返回结果有success字段，值为true
+                .andExpect(jsonPath("$.data.userName").value("newuser"));  // 验证返回的用户信息
+    }
+
 
 	@Test
 	void gradeTest(){
