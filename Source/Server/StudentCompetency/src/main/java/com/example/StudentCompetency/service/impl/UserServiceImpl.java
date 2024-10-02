@@ -118,7 +118,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public Result<UserVO> addFriend(User currentUser,User user){
-        
+
         if (currentUser.getId()==user.getId()){
             return Result.error(ResultMsgEnum.ADD_SELF_ERROR.getCode(),ResultMsgEnum.ADD_SELF_ERROR.getMessage());
         }
@@ -182,7 +182,7 @@ public class UserServiceImpl implements UserService {
                 return Result.success(userVO);
             }
         }
-            return Result.error(ResultMsgEnum.DELETE_FRIEND_ERROR.getCode(),ResultMsgEnum.DELETE_FRIEND_ERROR.getMessage());
+        return Result.error(ResultMsgEnum.DELETE_FRIEND_ERROR.getCode(),ResultMsgEnum.DELETE_FRIEND_ERROR.getMessage());
     }
 
     public Result<UserVO> rejestFriend(User currentUser, User user){

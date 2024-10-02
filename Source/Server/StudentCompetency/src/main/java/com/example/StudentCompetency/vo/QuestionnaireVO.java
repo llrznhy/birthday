@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 @Data
 public class QuestionnaireVO {
-    //private Integer id;
+    private Integer id;
     private String questionnaireName;
     private ArrayList<QuestionVO> questions;
 }

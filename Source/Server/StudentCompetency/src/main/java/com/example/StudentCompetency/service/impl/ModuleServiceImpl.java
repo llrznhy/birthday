@@ -19,6 +19,21 @@ public class ModuleServiceImpl implements ModuleService {
     private ModuleMapper moduleMapper;
 
     @Override
+    public void addQuestionnaire(Questionnaire questionnaire) {
+        moduleMapper.addQuestionnaire(questionnaire);
+    }
+
+    @Override
+    public void addQuestion(Question question) {
+        moduleMapper.addQuestion(question);
+    }
+
+    @Override
+    public void addOption(Option option) {
+        moduleMapper.addOption(option);
+    }
+
+    @Override
     public ArrayList<String> findQuestionnaireNames() {
         ArrayList<String> questionnaireNames;
         questionnaireNames = moduleMapper.findQuestionnaireNames();

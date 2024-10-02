@@ -9,9 +9,11 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class Grade {
 
-    private Long id;           // 主键ID
-    private Long studentId;     // 学生ID
-    private Long moduleId;      // 课程ID
-    private int optionID;
-    private String Optioncontext;  // 分数
+    private Long id;
+    private Long studentId;
+    private Long teacherId;
+    private Long questionnaireId;
+    private Long questionId;
+    private Long optionId;
+    //private String optionContext;
 }
