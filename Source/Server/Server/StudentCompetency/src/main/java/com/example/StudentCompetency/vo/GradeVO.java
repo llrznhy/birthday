@@ -3,10 +3,12 @@ package com.example.StudentCompetency.vo;
 
 import lombok.Data;
 public class GradeVO {
-    private Long id;           // 主键ID
-    private Long studentId;     // 学生ID
-    private Long moduleId;      // 课程ID
-    private int optionID;
-    private String Optioncontext;       // 分数
+    private Long id;
+    private Long studentId;
+    private Long teacherId;
+    private Long questionnaireId;
+    private Long questionID;
+    private Long optionID;
+    //private String optionContext;
 
 }

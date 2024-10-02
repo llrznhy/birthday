@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 @Data
 public class QuestionVO {
-    //private Integer id;
+    private Integer id;
     private String questionContext;
     private String questionCriteria;
     private ArrayList<OptionVO> options;
