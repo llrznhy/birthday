@@ -1,0 +1,51 @@
+name: Backend CI/CD Pipeline 
+
+on:
+  push:
+    paths:
+      - 'Source/Server/StudentCompetency/**'
+  pull_request:
+    paths:
+      - 'Source/Server/StudentCompetency/**' 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8      
+        ports:
+          - 3306:3306
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: swen90014
+        options: >-
+          --default-authentication-plugin=mysql_native_password  
+          --health-cmd "mysqladmin ping --silent"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 3
+
+    env:
+      DATABASE_URL: jdbc:mysql://localhost:3306/swen90014?useSSL=false&allowPublicKeyRetrieval=true
+      DATABASE_USERNAME: root
+      DATABASE_PASSWORD: root
+
+    steps:
+    - name: Checkout code          # 检出代码
+      uses: actions/checkout@v2
+
+    - name: Set up JDK             # 设置 JDK
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'zulu'
+        java-version: '8'
+
+    - name: Build with Maven       # 使用 Maven 构建项目
+      run: mvn -B package
+      working-directory: Source/Server/StudentCompetency
+
+    - name: Run tests              # 运行测试
+      run: mvn test
+      working-directory: Source/Server/StudentCompetency
