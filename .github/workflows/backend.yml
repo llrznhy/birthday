@@ -1,51 +1,24 @@
-name: Backend CI/CD Pipeline 
-
-on:
-  push:
-    paths:
-      - 'master'
-  pull_request:
-    paths:
-      - 'master' 
-
-jobs:
-  build:
-    runs-on: windows-latest
-
-    services:
-      mysql:
-        image: mysql:8      
-        ports:
-          - 3306:3306
-        env:
-          MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: swen90014
-        options: >-
-          --default-authentication-plugin=mysql_native_password  
-          --health-cmd "mysqladmin ping --silent"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 3
-
-    env:
-      DATABASE_URL: jdbc:mysql://localhost:3306/swen90014?useSSL=false&allowPublicKeyRetrieval=true
-      DATABASE_USERNAME: root
-      DATABASE_PASSWORD: root
-
-    steps:
-    - name: Checkout code          # 检出代码
-      uses: actions/checkout@v2
-
-    - name: Set up JDK             # 设置 JDK
-      uses: actions/setup-java@v2
-      with:
-        distribution: 'zulu'
-        java-version: '8'
-
-    - name: Build with Maven       # 使用 Maven 构建项目
-      run: mvn -B package
-      working-directory: Source/Server/StudentCompetency
-
-    - name: Run tests              # 运行测试
-      run: mvn test
-      working-directory: Source/Server/StudentCompetency
+            - name: Setup Node.js environment
+  uses: actions/setup-node@v4.0.4 
+  with:
+    # Set always-auth in npmrc.
+    always-auth: # optional, default is false
+    # Version Spec of the version to use. Examples: 12.x, 10.15.1, >=10.15.0.
+    node-version: # optional
+    # File containing the version Spec of the version to use.  Examples: package.json, .nvmrc, .node-version, .tool-versions.
+    node-version-file: # optional
+    # Target architecture for Node to use. Examples: x86, x64. Will use system architecture by default.
+    architecture: # optional
+    # Set this option if you want the action to check for the latest available version that satisfies the version spec.
+    check-latest: # optional
+    # Optional registry to set up for auth. Will set the registry in a project level .npmrc and .yarnrc file, and set up auth to read in from env.NODE_AUTH_TOKEN.
+    registry-url: # optional
+    # Optional scope for authenticating against scoped registries. Will fall back to the repository owner when using the GitHub Packages registry (https://npm.pkg.github.com/).
+    scope: # optional
+    # Used to pull node distributions from node-versions. Since there's a default, this is typically not supplied by the user. When running this action on github.com, the default value is sufficient. When running on GHES, you can pass a personal access token for github.com if you are experiencing rate limiting.
+    token: # optional, default is ${{ github.server_url == 'https://github.com' && github.token || '' }}
+    # Used to specify a package manager for caching in the default directory. Supported values: npm, yarn, pnpm.
+    cache: # optional
+    # Used to specify the path to a dependency file: package-lock.json, yarn.lock, etc. Supports wildcards or a list of file names for caching multiple dependencies.
+    cache-dependency-path: # optional
+          
