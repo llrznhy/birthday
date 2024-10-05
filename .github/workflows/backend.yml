@@ -3,10 +3,10 @@ name: Backend CI/CD Pipeline
 on:
   push:
     paths:
-      - 'Source/Server/StudentCompetency/**'
+      - 'master'
   pull_request:
     paths:
-      - 'Source/Server/StudentCompetency/**' 
+      - 'master' 
 
 jobs:
   build:
